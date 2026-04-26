@@ -2,7 +2,7 @@
 export const API_CONFIG = {
   BASE_URL: import.meta.env.VITE_GATEWAY_URL || 'https://gateway-202671058278.asia-south1.run.app',
   TIMEOUT: 30000,
-  TWILIO_VERIFY_SERVICE_SID: import.meta.env.VITE_TWILIO_VERIFY_SERVICE_SID || 'VAb0924bd6b4422558eff214e98882820',
+  TWILIO_VERIFY_SERVICE_SID: import.meta.env.VITE_TWILIO_VERIFY_SERVICE_SID || 'VAd7e6a5ae47268a712a2affd4597fcb73',
   ENDPOINTS: {
     // Auth
     AUTH: {
