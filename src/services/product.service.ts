@@ -141,10 +141,20 @@ class ProductService {
   }
 
   async getGiftingCategories() {
-    const response = await apiClient.get(
-      API_CONFIG.ENDPOINTS.PRODUCTS.GIFTING.CATEGORIES
-    );
-    return response.data;
+    try {
+      const response = await apiClient.get(
+        API_CONFIG.ENDPOINTS.PRODUCTS.GIFTING.CATEGORIES
+      );
+      return response.data;
+    } catch (error: any) {
+      console.error('Error fetching gifting categories:', error);
+      // Fallback - return empty array
+      return {
+        success: false,
+        data: [],
+        message: 'Failed to fetch gifting categories'
+      };
+    }
   }
 
   async getGiftingProducts(params?: {
@@ -228,8 +238,20 @@ class ProductService {
   }
 
   async getCategories(flowType?: string) {
-    const response = await apiClient.get('/api/products/categories', { params: flowType ? { flowType } : undefined });
-    return response.data;
+    try {
+      const response = await apiClient.get('/api/products/categories', { 
+        params: flowType ? { flowType } : undefined 
+      });
+      return response.data;
+    } catch (error: any) {
+      console.error('Error fetching categories:', error);
+      // Fallback - return empty array
+      return {
+        success: false,
+        data: [],
+        message: 'Failed to fetch categories'
+      };
+    }
   }
 
   async getShoppingCategories() {
